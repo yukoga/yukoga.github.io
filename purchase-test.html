@@ -22,6 +22,7 @@ document.write("<p>"+document.title+"</p>");
 <script>
 const mydate = new Date();
 let timecode = ""+mydate.getFullYear()+(""+(mydate.getMonth()+1)).padStart(2, 0)+(""+mydate.getDate()).padStart(2, 0)+"-"+(""+mydate.getHours()).padStart(2, 0)+(""+mydate.getMinutes()).padStart(2, 0)+(""+mydate.getSeconds()).padStart(2, 0);
+const transaction_id = document.location.search.match(/(\?|\&)transaction_id=([a-zA-Z0-9\-\_]+)/)?RegExp.$2:'4-9260000031758' + '-' + timecode;
 window.dataLayer = window.dataLayer || [];
 var penreglist = [{ 'sku':'M085910XX00000', 'name':'とうもろこしの冷製ポタージュ　（10袋）', 'category':'その他', 'price':3240, 'quantity':1 },
 { 'sku':'M098720XX00000', 'name':'野菜と豆の具だくさんポタージュ4種セット（16袋）', 'category':'その他', 'price':4860, 'quantity':2 },
@@ -30,7 +31,7 @@ var pencvlist = [{'transactionId':'13549712', 'transactionTotal':18277, 'transac
 dataLayer.push({
   event: 'purchase',
     ecommerce: {
-        transaction_id: '4-9260000031758' + '-' + timecode,
+        transaction_id: transaction_id, 
         affiliation: 'カゴメ健康直送便',
         value: 18277, 
         tax: 1357,
